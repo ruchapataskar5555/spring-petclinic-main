@@ -20,6 +20,13 @@
       <input th:replace="~{fragments/inputField :: input ('Name', 'name', 'text')}" />
       <input th:replace="~{fragments/inputField :: input ('Birth Date', 'birthDate', 'date')}" />
       <input th:replace="~{fragments/selectField :: select ('Type', 'type', ${types})}" />
+
+      <h3>Pet Attributes</h3>
+      <input type="hidden" th.field="*{petAttributes.id}"> </input>
+      <input th:replace="~{fragments/inputField :: input ('Temperament', 'petAttributes.temperament', 'text')}" />
+      <input th:replace="~{fragments/inputField :: input ('Length', 'petAttributes.length', 'number')}" />
+      <input th:replace="~{fragments/inputField :: input ('Weight', 'petAttributes.weight', 'number')}" />
+
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
