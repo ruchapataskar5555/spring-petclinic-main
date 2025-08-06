@@ -9,11 +9,8 @@ import org.springframework.samples.petclinic.dtos.petDto.PetRequest;
 import org.springframework.samples.petclinic.dtos.petDto.PetResponse;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetTemperament;
-import org.springframework.samples.petclinic.service.PetService;
 import org.springframework.samples.petclinic.service.PetTemperamentService;
 import org.springframework.stereotype.Component;
-
-import java.util.Optional;
 
 @Component
 public class PetJsonMapper {
@@ -48,7 +45,7 @@ public class PetJsonMapper {
 		return pet;
 	}
 
-	public void updateEntityFromDto(PetRequest request, Pet pet) {
+	public Pet updateEntityFromDto(PetRequest request, Pet pet) {
 		try {
 			PetTemperament temperament=pet.getPetTemperament();
 			temperament.setTemperament(request.getTemperament());
@@ -57,6 +54,7 @@ public class PetJsonMapper {
 		catch (JsonMappingException e) {
 			throw new RuntimeException(e);
 		}
+		return pet;
 	}
 
 }
