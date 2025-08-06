@@ -52,15 +52,16 @@
           <dd th:text="${pet.name}"></dd>
           <dt th:text="#{birthDate}">Birth Date</dt>
           <dd th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}"></dd>
+          <dt>Length</dt>
+          <dd th:text="${pet.length}"></dd>
+          <dt>Weight</dt>
+          <dd th:text="${pet.weight}"></dd>
           <dt th:text="#{type}">Type</dt>
           <dd th:text="${pet.type}"></dd>
 
           <dt>Temperament</dt>
-          <dd th:text="${pet.petAttributes?.temperament}"></dd>
-          <dt>Length</dt>
-          <dd th:text="${pet.petAttributes?.length}"></dd>
-          <dt>Weight</dt>
-          <dd th:text="${pet.petAttributes?.weight}"></dd>
+          <dd th:text="${pet.petTemperament?.temperament}"></dd>
+
         </dl>
       </td>
       <td valign="top">
@@ -76,7 +77,7 @@
             <td th:text="${visit?.description}"></td>
           </tr>
           <tr>
-            <td><a th:href="@{__${owner.id}__/pets/__${pet.id}__/edit}" th:text="#{editPet}">Edit Pet</a></td>
+            <td><a th:href="@{/api/v1/owners/{ownerId}/pets/{petId}/attributes(ownerId=${ownerId}, petId=${petId})}" th:text="#{editPetTemperament}">Edit Pet Temperament</a></td>
             <td><a th:href="@{__${owner.id}__/pets/__${pet.id}__/visits/new}" th:text="#{addVisit}">Add Visit</a></td>
           </tr>
         </table>

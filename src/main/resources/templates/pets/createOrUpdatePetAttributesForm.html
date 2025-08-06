@@ -2,7 +2,7 @@
 
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 <body>
-<form th:action="@{/owners/{ownerId}/pets/{petId}/attributes(ownerId=${ownerId}, petId=${petId})}" th:object="${petAttributes}" method="post">
+<form th:action="@{/api/v1/owners/{ownerId}/pets/{petId}/attributes(ownerId=${ownerId}, petId=${petId})}" th:object="${petTemperament}" method="post">
 
 
   <input type="hidden" name="_method" value="put"/>
@@ -10,11 +10,6 @@
   <label>Temperament:</label>
   <input type="text" th:field="*{temperament}" />
 
-  <label>Length (cm):</label>
-  <input type="number" step="0.1" th:field="*{length}" />
-
-  <label>Weight (kg):</label>
-  <input type="number" step="0.1" th:field="*{weight}" />
 
   <button type="submit">Save</button>
 </form>

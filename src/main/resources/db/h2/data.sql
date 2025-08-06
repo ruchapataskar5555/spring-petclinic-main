@@ -33,19 +33,26 @@ INSERT INTO owners VALUES (default, 'Maria', 'Escobito', '345 Maple St.', 'Madis
 INSERT INTO owners VALUES (default, 'David', 'Schroeder', '2749 Blackhawk Trail', 'Madison', '6085559435');
 INSERT INTO owners VALUES (default, 'Carlos', 'Estaban', '2335 Independence La.', 'Waunakee', '6085555487');
 
-INSERT INTO pets VALUES (default, 'Leo', '2010-09-07', 1, 1,null);
-INSERT INTO pets VALUES (default, 'Basil', '2012-08-06', 6, 2,null);
-INSERT INTO pets VALUES (default, 'Rosy', '2011-04-17', 2, 3,null);
-INSERT INTO pets VALUES (default, 'Jewel', '2010-03-07', 2, 3,null);
-INSERT INTO pets VALUES (default, 'Iggy', '2010-11-30', 3, 4,null);
-INSERT INTO pets VALUES (default, 'George', '2010-01-20', 4, 5,null);
-INSERT INTO pets VALUES (default, 'Samantha', '2012-09-04', 1, 6,null);
-INSERT INTO pets VALUES (default, 'Max', '2012-09-04', 1, 6,null);
-INSERT INTO pets VALUES (default, 'Lucky', '2011-08-06', 5, 7,null);
-INSERT INTO pets VALUES (default, 'Mulligan', '2007-02-24', 2, 8,null);
-INSERT INTO pets VALUES (default, 'Freddy', '2010-03-09', 5, 9,null);
-INSERT INTO pets VALUES (default, 'Lucky', '2010-06-24', 2, 10,null);
-INSERT INTO pets VALUES (default, 'Sly', '2012-06-08', 1, 10,null);
+
+INSERT INTO pet_temperament (temperament) VALUES
+('calm'),
+('happy'),
+('Aggressive'),
+('Friendly');
+
+INSERT INTO pets VALUES (default, 'Leo', '2010-09-07',10.55,20.52, 1, 1,1);
+INSERT INTO pets VALUES (default, 'Basil', '2012-08-06',10.55,20.52, 6, 2,1);
+INSERT INTO pets VALUES (default, 'Rosy', '2011-04-17',10.55,20.52, 2, 3,2);
+INSERT INTO pets VALUES (default, 'Jewel', '2010-03-07',10.55,20.52, 2, 3,2);
+INSERT INTO pets VALUES (default, 'Iggy', '2010-11-30',10.55,20.52, 3, 4,3);
+INSERT INTO pets VALUES (default, 'George', '2010-01-20',10.55,20.52, 4, 5,3);
+INSERT INTO pets VALUES (default, 'Samantha', '2012-09-04',10.55,20.52, 1, 6,4);
+INSERT INTO pets VALUES (default, 'Max', '2012-09-04',10.55,20.52, 1, 6,4);
+INSERT INTO pets VALUES (default, 'Lucky', '2011-08-06',10.55,20.52, 5, 7,4);
+INSERT INTO pets VALUES (default, 'Mulligan', '2007-02-24',10.55,20.52, 2, 8,3);
+INSERT INTO pets VALUES (default, 'Freddy', '2010-03-09',10.55,20.52, 5, 9,2);
+INSERT INTO pets VALUES (default, 'Lucky', '2010-06-24',10.55,20.52, 2, 10,1);
+INSERT INTO pets VALUES (default, 'Sly', '2012-06-08',10.55,20.52, 1, 10,1);
 
 INSERT INTO visits VALUES (default, 7, '2013-01-01', 'rabies shot');
 INSERT INTO visits VALUES (default, 8, '2013-01-02', 'rabies shot');
