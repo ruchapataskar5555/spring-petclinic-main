@@ -77,7 +77,7 @@
             <td th:text="${visit?.description}"></td>
           </tr>
           <tr>
-            <td><a th:href="@{/api/v1/owners/{ownerId}/pets/{petId}/attributes(ownerId=${ownerId}, petId=${petId})}" th:text="#{editPetTemperament}">Edit Pet Temperament</a></td>
+            <td><a th:href="@{/owners/{ownerId}/pets/{petId}/attributes(ownerId=${owner.id}, petId=${pet.id})}" th:text="#{editPetTemperament}">Edit Pet Temperament </a></td>
             <td><a th:href="@{__${owner.id}__/pets/__${pet.id}__/visits/new}" th:text="#{addVisit}">Add Visit</a></td>
           </tr>
         </table>

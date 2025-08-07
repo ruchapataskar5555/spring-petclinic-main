@@ -10,31 +10,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-@RequiredArgsConstructor
-@Transactional
-public class OwnerService {
 
-	private final OwnerRepository ownerRepository;
+public interface OwnerService {
 
-	public List<Owner> findAll() {
-		return ownerRepository.findAll();
-	}
 
-	public Optional<Owner> findById(Integer id) {
-		return Optional.ofNullable(ownerRepository.findById(id)
-			.orElseThrow(() -> new EntityNotFoundException("Owner not found with ID: " + id)));
-	}
+	public List<Owner> findAll();
 
-	public Owner save(Owner owner) {
-		return ownerRepository.save(owner);
-	}
+	public Optional<Owner> findById(Integer id) ;
 
-	public void deleteById(Integer id) {
-		if (!ownerRepository.existsById(id)) {
-			throw new EntityNotFoundException("Owner not found with ID: " + id);
-		}
-		ownerRepository.deleteById(id);
-	}
+	public Owner save(Owner owner);
 
+	public void deleteById(Integer id) ;
 }

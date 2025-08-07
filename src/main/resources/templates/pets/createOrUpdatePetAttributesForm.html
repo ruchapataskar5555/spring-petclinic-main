@@ -2,7 +2,7 @@
 
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 <body>
-<form th:action="@{/api/v1/owners/{ownerId}/pets/{petId}/attributes(ownerId=${ownerId}, petId=${petId})}" th:object="${petTemperament}" method="post">
+<form th:action="@{/owners/{ownerId}/pets/{petId}/attributes(ownerId=${ownerId}, petId=${petId})}" th:object="${petTemperament}" method="post">
 
 
   <input type="hidden" name="_method" value="put"/>

@@ -35,8 +35,8 @@ INSERT INTO owners VALUES (default, 'Carlos', 'Estaban', '2335 Independence La.'
 
 
 INSERT INTO pet_temperament (temperament) VALUES
-('calm'),
-('happy'),
+('Calm'),
+('Happy'),
 ('Aggressive'),
 ('Friendly');
 

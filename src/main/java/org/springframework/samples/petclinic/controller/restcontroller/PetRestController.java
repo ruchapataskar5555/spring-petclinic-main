@@ -28,7 +28,7 @@ import static org.springframework.samples.petclinic.constants.RestUrlConstants.P
 @RestController
 @RequestMapping(PET_API_V1)
 @RequiredArgsConstructor
-class PetRestController {
+public class PetRestController {
 
 	private final PetJsonMapper petJsonMapper;
 

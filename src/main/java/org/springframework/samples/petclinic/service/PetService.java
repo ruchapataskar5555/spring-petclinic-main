@@ -8,37 +8,16 @@ import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetTemperament;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.repository.PetRepository;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-@RequiredArgsConstructor
-public class PetService {
 
-	private final PetRepository petRepository;
+public interface PetService {
 
-	public List<Pet> findAll() {
-		return petRepository.findAll();
-	}
-
-	public Optional<Pet> findById(Integer id) {
-		return Optional.ofNullable(
-				petRepository.findById(id).orElseThrow(() -> new PetNotFoundException("Pet not found with ID: " + id)));
-	}
-
-	public void deleteById(Integer id) {
-		if (!petRepository.existsById(id)) {
-			throw new PetNotFoundException("Pet not found with ID: " + id);
-		}
-		petRepository.deleteById(id);
-	}
-
-	public Pet save(Pet pet) {
-		return petRepository.save(pet);
-	}
-
+	public List<Pet> findAll();
+	public Optional<Pet> findById(Integer id) ;
+	public void deleteById(Integer id);
+	public Pet save(Pet pet) ;
 
 }
