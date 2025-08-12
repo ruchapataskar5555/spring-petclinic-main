@@ -90,7 +90,7 @@ public class PetRestController {
 			.orElseThrow(() -> new PetNotFoundException("Owner not found with ID: " + petId));
 
 		Pet updatedPet=petJsonMapper.updateEntityFromDto(request, existingPet);
-
+		petService.save(updatedPet);
 		PetResponse dto = petJsonMapper.toDto(updatedPet);
 		return ResponseEntity.ok(petAssembler.toModel(dto));
 	}
