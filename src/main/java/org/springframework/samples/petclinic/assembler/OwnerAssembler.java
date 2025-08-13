@@ -3,9 +3,8 @@ package org.springframework.samples.petclinic.assembler;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
-import org.springframework.samples.petclinic.controller.restcontroller.OwnerRestController;
-import org.springframework.samples.petclinic.dtos.ownerDto.OwnerResponse;
-import org.springframework.samples.petclinic.dtos.petDto.PetResponse;
+import org.springframework.samples.petclinic.dtos.OwnerResponse;
+import org.springframework.samples.petclinic.dtos.PetResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
