@@ -19,9 +19,18 @@ public class OwnerAssembler implements RepresentationModelAssembler<OwnerRespons
 	public EntityModel<OwnerResponse> toModel(OwnerResponse owner) {
 		EntityModel<OwnerResponse> model = EntityModel.of(owner);
 
-		model.add(linkTo(methodOn(org.springframework.samples.petclinic.controller.restcontroller.OwnerRestController.class).getOwnerById(owner.getId())).withSelfRel());
-		model.add(linkTo(methodOn(org.springframework.samples.petclinic.controller.restcontroller.OwnerRestController.class).deleteOwner(owner.getId())).withRel("delete"));
-		model.add(linkTo(methodOn(org.springframework.samples.petclinic.controller.restcontroller.OwnerRestController.class).updateOwner(owner.getId(), null)).withRel("update"));
+		model.add(linkTo(
+				methodOn(org.springframework.samples.petclinic.controller.restcontroller.OwnerRestController.class)
+					.getOwnerById(owner.getId()))
+			.withSelfRel());
+		model.add(linkTo(
+				methodOn(org.springframework.samples.petclinic.controller.restcontroller.OwnerRestController.class)
+					.deleteOwner(owner.getId()))
+			.withRel("delete"));
+		model.add(linkTo(
+				methodOn(org.springframework.samples.petclinic.controller.restcontroller.OwnerRestController.class)
+					.updateOwner(owner.getId(), null))
+			.withRel("update"));
 
 		for (PetResponse pet : owner.getPets()) {
 			String url = ServletUriComponentsBuilder.fromCurrentContextPath()

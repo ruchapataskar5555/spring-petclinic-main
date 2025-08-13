@@ -15,7 +15,7 @@ public class PetTypeServiceImpl implements PetTypeService {
 	private final PetTypeRepository petTypeRepository;
 
 	@Override
-	public Optional<PetType> findPetTypeByName(String type){
+	public Optional<PetType> findPetTypeByName(String type) {
 		return Optional.ofNullable(petTypeRepository.findByName(type));
 	}
 
@@ -23,6 +23,5 @@ public class PetTypeServiceImpl implements PetTypeService {
 	public PetType save(PetType petType) {
 		return petTypeRepository.save(petType);
 	}
-
 
 }

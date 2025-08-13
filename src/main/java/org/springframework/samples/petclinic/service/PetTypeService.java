@@ -7,5 +7,7 @@ import java.util.Optional;
 public interface PetTypeService {
 
 	public Optional<PetType> findPetTypeByName(String type);
+
 	public PetType save(PetType petType);
+
 }

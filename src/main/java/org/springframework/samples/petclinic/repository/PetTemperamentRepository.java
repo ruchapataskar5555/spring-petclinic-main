@@ -35,5 +35,4 @@ public interface PetTemperamentRepository extends JpaRepository<PetTemperament, 
 
 	Optional<PetTemperament> findByTemperament(@Nonnull String temperament);
 
-
 }

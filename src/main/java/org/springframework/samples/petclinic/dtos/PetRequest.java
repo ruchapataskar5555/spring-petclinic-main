@@ -16,7 +16,7 @@ public class PetRequest {
 	@Past(message = "Birth date must be in the past")
 	private LocalDate birthDate;
 
-	@NotNull(message="Pet Type is required")
+	@NotNull(message = "Pet Type is required")
 	private String type;
 
 	@Size(max = 50, message = "Temperament must not exceed 50 characters")

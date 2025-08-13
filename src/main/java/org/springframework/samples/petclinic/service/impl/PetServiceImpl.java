@@ -13,6 +13,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class PetServiceImpl implements PetService {
+
 	private final PetRepository petRepository;
 
 	public List<Pet> findAll() {
@@ -21,7 +22,7 @@ public class PetServiceImpl implements PetService {
 
 	public Optional<Pet> findById(Integer id) {
 		return Optional.ofNullable(
-			petRepository.findById(id).orElseThrow(() -> new PetNotFoundException("Pet not found with ID: " + id)));
+				petRepository.findById(id).orElseThrow(() -> new PetNotFoundException("Pet not found with ID: " + id)));
 	}
 
 	public void deleteById(Integer id) {
@@ -34,6 +35,5 @@ public class PetServiceImpl implements PetService {
 	public Pet save(Pet pet) {
 		return petRepository.save(pet);
 	}
-
 
 }

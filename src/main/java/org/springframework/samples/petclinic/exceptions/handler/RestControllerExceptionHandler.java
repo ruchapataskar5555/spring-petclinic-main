@@ -46,7 +46,7 @@ public class RestControllerExceptionHandler {
 			.toList();
 
 		return buildResponse(HttpStatus.BAD_REQUEST, VALIDATION_FAILED, INPUT_VALIDATION_ERROR, ex,
-			Map.of(ERROR, fieldErrors));
+				Map.of(ERROR, fieldErrors));
 	}
 
 	public ResponseEntity<String> handleEntityNotFound(EntityNotFoundException ex) {
@@ -61,7 +61,7 @@ public class RestControllerExceptionHandler {
 	}
 
 	private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String error, String message,
-															  Exception ex, Map<String, Object> extraFields) {
+			Exception ex, Map<String, Object> extraFields) {
 		Map<String, Object> body = new LinkedHashMap<>();
 		body.put(TIMESTAMP, LocalDateTime.now());
 		body.put(STATUS, status.value());

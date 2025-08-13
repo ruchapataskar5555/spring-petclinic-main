@@ -10,15 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-
 public interface OwnerService {
-
 
 	public List<Owner> findAll();
 
-	public Optional<Owner> findById(Integer id) ;
+	public Optional<Owner> findById(Integer id);
 
 	public Owner save(Owner owner);
 
-	public void deleteById(Integer id) ;
+	public void deleteById(Integer id);
+
 }

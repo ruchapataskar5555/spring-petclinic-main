@@ -8,13 +8,12 @@ import java.util.Optional;
 
 public interface PetTemperamentService {
 
-	public PetTemperament save(PetTemperament petTemperament) ;
+	public PetTemperament save(PetTemperament petTemperament);
 
 	public Optional<PetTemperament> findById(int id);
 
 	public void deleteById(int id);
 
 	public Optional<PetTemperament> findPetTemperament(String temperament);
-
 
 }

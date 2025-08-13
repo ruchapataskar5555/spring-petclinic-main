@@ -42,11 +42,9 @@ public class PetRestController {
 
 	@GetMapping(PET_ID)
 	public ResponseEntity<EntityModel<PetResponse>> getPetById(@PathVariable Integer ownerId,
-															   @PathVariable Integer petId) {
-		ownerService.findById(ownerId)
-			.orElseThrow(() -> new OwnerNotFoundException(OWNER_NOT_FOUND+ ownerId));
-		Pet pet = petService.findById(petId)
-			.orElseThrow(() -> new PetNotFoundException(PET_NOT_FOUND+ petId));
+			@PathVariable Integer petId) {
+		ownerService.findById(ownerId).orElseThrow(() -> new OwnerNotFoundException(OWNER_NOT_FOUND + ownerId));
+		Pet pet = petService.findById(petId).orElseThrow(() -> new PetNotFoundException(PET_NOT_FOUND + petId));
 		PetResponse dto = petMapper.toDto(pet);
 		return ResponseEntity.ok(petAssembler.toModel(dto));
 	}
@@ -54,7 +52,7 @@ public class PetRestController {
 	@GetMapping
 	public ResponseEntity<CollectionModel<EntityModel<PetResponse>>> getAllPetsForOwner(@PathVariable Integer ownerId) {
 		Owner owner = ownerService.findById(ownerId)
-			.orElseThrow(() -> new OwnerNotFoundException(OWNER_NOT_FOUND+ ownerId));
+			.orElseThrow(() -> new OwnerNotFoundException(OWNER_NOT_FOUND + ownerId));
 
 		List<EntityModel<PetResponse>> petModels = owner.getPets().stream().map(petMapper::toDto).map(pet -> {
 			EntityModel<PetResponse> petDTOEntityModel = petAssembler.toModel(pet);
@@ -68,7 +66,7 @@ public class PetRestController {
 
 	@PostMapping
 	public ResponseEntity<EntityModel<PetResponse>> createPetForOwner(@PathVariable Integer ownerId,
-																	  @RequestBody @Valid PetRequest request) {
+			@RequestBody @Valid PetRequest request) {
 
 		Owner owner = ownerService.findById(ownerId)
 			.orElseThrow(() -> new OwnerNotFoundException(OWNER_NOT_FOUND + ownerId));
@@ -87,7 +85,7 @@ public class PetRestController {
 
 	@PutMapping(PET_ID)
 	public ResponseEntity<EntityModel<PetResponse>> updatePet(@PathVariable Integer petId,
-															  @RequestBody @Valid PetRequest request) {
+			@RequestBody @Valid PetRequest request) {
 		Pet existingPet = petService.findById(petId)
 			.orElseThrow(() -> new PetNotFoundException(OWNER_NOT_FOUND + petId));
 
@@ -101,7 +99,7 @@ public class PetRestController {
 	public ResponseEntity<String> deletePet(@PathVariable Integer ownerId, @PathVariable Integer petId) {
 		Owner owner = ownerService.findById(ownerId)
 			.orElseThrow(() -> new OwnerNotFoundException(OWNER_NOT_FOUND + ownerId));
-		petService.findById(petId).orElseThrow(() -> new PetNotFoundException(PET_NOT_FOUND+ petId));
+		petService.findById(petId).orElseThrow(() -> new PetNotFoundException(PET_NOT_FOUND + petId));
 		Optional<Pet> ownerPet = owner.getPets().stream().filter(pet -> Objects.equals(pet.getId(), petId)).findAny();
 		owner.getPets().remove(ownerPet.orElse(null));
 		petService.deleteById(petId);

@@ -26,7 +26,7 @@ public class PetTemperamentServiceImpl implements PetTemperamentService {
 		repository.deleteById(id);
 	}
 
-	public Optional<PetTemperament> findPetTemperament(String temperament){
+	public Optional<PetTemperament> findPetTemperament(String temperament) {
 		return repository.findByTemperament(temperament);
 	}
 
